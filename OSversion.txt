@@ -1,0 +1,12 @@
+#!/bin/bash
+# a. Display OS version, release number, and kernel version
+echo "=== OS Information ==="
+echo "OS Version and Release Number:"
+cat /etc/os-release | grep -E '^NAME=|^VERSION='
+echo "Kernel Version:"
+uname -r
+echo ""
+# c. Display processes with highest memory usage
+echo "=== Processes with Highest Memory Usage ==="
+ps -eo pid,comm,%mem --sort=-%mem | head -n 11
+echo ""
